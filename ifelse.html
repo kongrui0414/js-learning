@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript learning</title>
+    
+</head>
+<body>
+<div style="background-color: aquamarine;width:200px" id="move" >
+  123
+
+</div>
+<ul>
+  <li>a</li>
+  <li>b</li>
+  <li>c</li>
+  <li>d</li>
+</ul>
+<div class="con"></div>
+<input type="text" class="qinput">
+<button>发送短信</button>
+<button id="movebtn">move</button>
+    <script>
+        var div = document.querySelector('div');
+        div.addEventListener('click', function (e){
+          console.log(e.target)
+          console.log(this)
+        })
+        var ul = document.querySelector('ul')
+        ul.addEventListener('click', function (e){
+          // console.log(this)
+          // console.log(e.target)
+          e.target.style.backgroundColor = 'pink'
+        })
+
+        var search = document.querySelector('input')
+        document.addEventListener('keyup', function (e){
+          if (e.key === 's'){
+            // console.log('press s')
+            search.focus()
+          }
+        })
+        var con = document.querySelector('.con')
+        var input = document.querySelector('.qinput')
+        input.addEventListener('keyup', function (){
+          if(this.value === ''){
+            con.style.display = 'none'
+          }else{
+            con.style.display = 'block'
+            con.innerHTML = this.value
+          }
+        })
+        //失去焦点，隐藏con盒子
+        input.addEventListener('blur', function (){
+          con.style.display = 'none'
+        })
+        //获得焦点，显示con盒子
+        input.addEventListener('focus', function (){
+          if (this.value !== ''){
+            con.style.display = 'block'
+          }
+        })
+
+        var btn = document.querySelector('button')
+        var time = 3
+        btn.addEventListener('click', function (){
+          btn.disabled = true
+          var timer = setInterval(function (){
+            if (time === 0){
+              //如果定时器到0，清除定时器，复原按钮
+              clearInterval(timer)
+              btn.disabled = false
+              btn.innerHTML = '重新发送'
+              time = 3
+            }else{
+              time --
+              btn.innerHTML = '还剩下' + time + '秒'
+
+            }
+          },1000)
+        })
+
+    </script>
+</body>
+</html>

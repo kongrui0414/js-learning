@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  console.log(location.search)
+  //截取掉？
+  var parms = location.search.substring(1)
+  console.log(parms)
+  //使用=分割
+  var arr = parms.split("=")
+  console.log(arr)
+</script>
+</body>
+</html>
