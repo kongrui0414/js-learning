@@ -82,6 +82,21 @@
           },1000)
         })
 
+        const oldObj = {
+          a: 1,
+          b: [ 'e', 'f', 'g' ],
+          c: { h: { i: 2 } }
+        };
+
+        const newObj = JSON.parse(JSON.stringify(oldObj));
+        console.log('newObj is: ' + newObj);
+        console.log('---------')
+        console.log(newObj.c.h, oldObj.c.h); // { i: 2 } { i: 2 }
+        console.log(oldObj.c.h === newObj.c.h); // false
+        newObj.c.h.i = 'change';
+        console.log(newObj.c.h, oldObj.c.h); // { i: 'change' } { i: 2 }
+
+
     </script>
 </body>
 </html>

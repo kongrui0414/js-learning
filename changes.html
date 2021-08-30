@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  let a = 123 !="456"
+  console.log(a)
+  let b = +'123'
+  console.log(b)
+  let c = 4 > "5"
+  console.log(c)
+  let d = 5 / null
+  console.log(d)
+  let e = true | 0
+  console.log(e)
+
+  console.log("-----------")
+  let student = {
+    firstName: "testing",
+    lastName: "testing",
+    marks: 500
+  }
+
+  function changeName(student) {
+    // student.firstName = "testing11" //should not do it
+    let copiedStudent = Object.assign({}, student);
+    copiedStudent.firstName = "testing11";
+    return copiedStudent;
+  }
+
+  console.log(changeName(student));
+
+  console.log(student);
+
+</script>
+</body>
+</html>

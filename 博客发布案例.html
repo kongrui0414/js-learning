@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>微博发布案例</title>
+  <script src="jquery.min.js"></script>
+  <style>
+    ul li {
+        line-height: 25px;
+        border-bottom: 1px dashed #ccc;
+        display: none;
+    }
+  </style>
+  <script>
+    $(function (){
+      $('.btn').on("click", function (){
+        var li = $("<li style='background-color: pink;'></li>");
+        li.html($('.txt').val() + "<a href='javascript:;'>delete</a>");
+
+        $('#ui-content').prepend(li);
+        $('#ui-content li').slideDown('fast' ,function(e) {
+          console.log('slideDown work')
+        });
+        $('.txt').val("");
+      })
+      $(".btn1").click(function(){
+        $("h1").slideUp();
+      });
+    })
+  </script>
+</head>
+<body>
+<div class="box" id="blogbox">
+  <h1>博客发布</h1>
+  <textarea name="" class="txt" cols="30" rows="10"></textarea>
+  <button class="btn">publish</button>
+  <button class="btn1">btn1</button>
+  <ul id="ui-content">
+
+  </ul>
+</div>
+</body>
+</html>
